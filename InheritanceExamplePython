@@ -1,0 +1,111 @@
+#super class for all vehicles
+class Vehicle:
+    def __init__(self,color,fuelConsumption,speedLimit):
+        self.color = color
+        self.fuelConsumption = fuelConsumption
+        self.speedLimit = speedLimit
+        
+    #super class Methods  
+    def start(self):
+        return "Car is started"
+    def stop(self):
+        return "Car is Stopped"
+    def drive(self):
+        return "car is Moving"
+    
+#passanger vehicle that inherit from Vehicle class   
+class PassangerVehicle (Vehicle):
+     def __init__(self, color,fuelConsumption,speedLimit,numberOfSits, numberOfDoors):
+         super().__init__(color,fuelConsumption,speedLimit)
+         self.numberOfSits = numberOfSits
+         self.numberOfDoors = numberOfDoors
+         
+     
+     # methods of a passanger vehicle
+     def trunkOpen(self):
+         return "The trunk is Open"
+     def trunkClose(self):
+         return "the trunk is Closed"
+     
+     
+#Transportation vehicle class that inherit from Vehicle class     
+class TransportVan(Vehicle):
+    
+     def __init__(self, color,fuelConsumption,speedLimit,numberOfBoxes):
+         super().__init__(color,fuelConsumption,speedLimit)
+         self.numberOfBoxes = numberOfBoxes
+    
+     def loadBoxes(self):
+         return "Loading Boxes ....."
+     def unLoadBoxes(self):
+         return "unloading Boxes....."
+
+#big truck class that inehrit from Vehicle
+    
+class Truck(Vehicle):
+     def __init__(self, color,fuelConsumption,speedLimit,numberOfContainers,truckHeight):
+         super().__init__(color,fuelConsumption,speedLimit)
+         self.numberOfContainers = numberOfContainers
+         self.truckHeight = truckHeight   
+        
+     def loadContainer(self):
+         return "Loading Container"
+     def unLoadContainer(self):
+         return "UnLoading Container"
+    
+def main():
+    
+    
+    newVehicle = Vehicle("Black","25mil/Galon","200mile/second")
+    
+    print("New Vehicle object\n")
+    print("Vehicle Color: " + newVehicle.color)
+    print("Vehicle State: "+newVehicle.start())
+    print("Vehicle state: " +newVehicle.stop())
+    print("--------------------------------")
+    
+    passangerVehicle = PassangerVehicle("Blue","55mil/Galon","100mile/second",4,8)
+    
+    print("New Passanger Vehicle object\n")
+    print("Vehicle Color: " + passangerVehicle.color)
+    print("Number of Doors: {}".format(passangerVehicle.numberOfDoors))
+    print("Number of Sits: {}".format(passangerVehicle.numberOfSits))
+    print("Trunk state: "+ passangerVehicle.trunkOpen())
+    print("Truck state: " +passangerVehicle.trunkClose())
+    print("--------------------------------")
+    
+    transportVan = TransportVan("RED","95mil/Galon","150mile/second",400)
+    
+    print("New Transport Van Vehicle object\n")
+    print("Van Color: " + transportVan.color)
+    print("Number of Boxes: {}".format(transportVan.numberOfBoxes))
+    print("Loading state: "+ transportVan.loadBoxes())
+    print("Loading state: " +transportVan.unLoadBoxes())
+    print("--------------------------------")
+    
+    truck = Truck("yellow","85mil/Galon","30mile/second",7000,6)
+    
+    print("New Truck Vehicle object\n")
+    print("Truck Color: " +  truck.color)
+    print("Number of Containers: {}".format(truck.numberOfContainers))
+    print("Truck Height: {} feet".format(truck.truckHeight))
+    print("Loading state: "+  truck.loadContainer())
+    print("Loading state: " + truck.unLoadContainer())
+    print("--------------------------------")
+    
+  
+    
+    
+main()
+    
+    
+    
+     
+    
+    
+    
+
+        
+    
+    
+
